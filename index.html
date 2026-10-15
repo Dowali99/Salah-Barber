@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salah Barber - صالون الحلاقة الفاخر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #ce1126;
+            --dark-bg: #09090b;
+            --card-bg: #141416;
+            --text-light: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --accent: #d4af37;
+            --border: #27272a;
+            --glow: 0 0 18px rgba(206, 17, 38, 0.6);
+            --gold-glow: 0 0 15px rgba(212, 175, 55, 0.4);
+            --booked: #7f1d1d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- Header الفخم --- */
+        header {
+            background: linear-gradient(180deg, rgba(9,9,11,0.98) 0%, rgba(20,20,22,0.95) 100%);
+            backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 4px 30px rgba(206,17,38,0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-ring {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            padding: 3px;
+            background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow);
+            transition: transform 0.4s;
+        }
+
+        .logo-ring:hover { transform: rotate(15deg) scale(1.05); }
+
+        .logo-ring img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--dark-bg);
+        }
+
+        .brand-name {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .brand-name span { color: var(--primary); }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--gold-glow);
+            transform: translateY(-3px);
+        }
+
+        .nav-icon.highlight {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .nav-icon.highlight:hover { background: #a80c1d; }
+
+        /* --- Floating Booking Button --- */
+        .floating-book {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(206,17,38,0.8);
+            z-index: 999;
+            animation: pulse 2s infinite;
+            transition: 0.3s;
+        }
+
+        .floating-book:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: #a80c1d;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(206,17,38,0.7); }
+            70% { box-shadow: 0 0 0 18px rgba(206,17,38,0); }
+            100% { box-shadow: 0 0 0 0 rgba(206,17,38,0); }
+        }
+
+        /* --- Hero --- */
+        .hero {
+            background: linear-gradient(rgba(9, 9, 11, 0.88), rgba(9, 9, 11, 0.96)), 
+                        url('https://i.ibb.co/DDG2Jj7p/FB-IMG-1792063863241.jpg') center/cover;
+            padding: 70px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(206,17,38,0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(20,20,22,0.9);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            color: var(--accent);
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- Global --- */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.9rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title span { color: var(--primary); }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        section { margin-top: 60px; }
+
+        /* --- الخدمات --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: 0.4s;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(206,17,38,0.15);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+
+        .service-card .price {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* --- قسم التسريحات القابلة للحجز --- */
+        .styles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .style-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .style-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+            box-shadow: var(--gold-glow);
+        }
+
+        .style-img {
+            height: 230px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .style-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .style-card:hover .style-img img { transform: scale(1.08); }
+
+        .style-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(206,17,38,0.92);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            backdrop-filter: blur(5px);
+        }
+
+        .style-info {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .style-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .style-info .style-price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .style-book-btn {
+            margin-top: auto;
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            padding: 9px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+
+        .style-book-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--glow);
+        }
+
+        /* --- Agenda / Booking Section --- */
+        .agenda-wrapper {
+            background: linear-gradient(145deg, #121214, #0c0c0e);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agenda-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(206,17,38,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .agenda-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed var(--border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .agenda-header i {
+            font-size: 1.6rem;
+            color: var(--accent);
+        }
+
+        .agenda-header h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .agenda-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i { color: var(--primary); font-size: 0.9rem; }
+
+        .form-group input, .form-group select {
+            background: #09090b;
+            border: 1px solid var(--border);
+            padding: 12px 14px;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(206,17,38,0.15);
+        }
+
+        .form-group input::placeholder { color: #52525b; }
+
+        /* Date input custom */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+
+        /* Time slots */
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
+            grid-column: 1 / -1;
+        }
+
+        .time-slot {
+            background: #09090b;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 6px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .time-slot:hover:not(.booked):not(.selected) {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .time-slot.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: var(--glow);
+        }
+
+        .time-slot.booked {
+            background: rgba(127,29,29,0.25);
+            border-color: var(--booked);
+            color: #f87171;
+            cursor: not-allowed;
+            text-decoration: line-through;
+            opacity: 0.85;
+        }
+
+        .time-slot.booked::after {
+            content: '\f023';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.65rem;
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            color: #f87171;
+        }
+
+        .time-slot .slot-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        .submit-btn-group {
+            display: flex;
+            gap: 15px;
+            grid-column: 1 / -1;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-submit {
+            flex: 2;
+            background: linear-gradient(135deg, var(--primary), #a80c1d);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 6px 20px rgba(206,17,38,0.35);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(206,17,38,0.5);
+        }
+
+        .btn-whatsapp {
+            flex: 1;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: bold;
+            border-radius: 12px;
+            padding: 14px;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+
+        /* --- Busy Slots Viewer --- */
+        .busy-viewer {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .busy-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .busy-header i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .busy-header h3 { font-size: 1.15rem; }
+
+        .busy-date-picker {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .busy-date-picker input {
+            background: #09090b;
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            outline: none;
+        }
+
+        .busy-date-picker input:focus { border-color: var(--primary); }
+
+        .busy-date-picker button {
+            background: var(--primary);
+            border: none;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        .busy-date-picker button:hover { background: #a80c1d; }
+
+        .busy-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 10px;
+        }
+
+        .busy-slot {
+            padding: 10px 8px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            background: #09090b;
+            color: var(--text-muted);
+        }
+
+        .busy-slot.free {
+            border-color: #166534;
+            color: #4ade80;
+            background: rgba(22,101,52,0.12);
+        }
+
+        .busy-slot.taken {
+            border-color: var(--booked);
+            color: #f87171;
+            background: rgba(127,29,29,0.22);
+            text-decoration: line-through;
+        }
+
+        .busy-legend {
+            display: flex;
+            gap: 20px;
+            margin-top: 18px;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .busy-legend span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .legend-dot.free { background: #4ade80; }
+        .legend-dot.taken { background: #f87171; }
+
+        /* --- Gallery (صورك الأصلية) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 220px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-item::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 10px; left: 10px;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover::after { opacity: 1; }
+
+        /* --- Info Section --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 16px;
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+        }
+
+        .work-hours { list-style: none; }
+
+        .work-hours li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            border-top: 1px solid var(--border);
+            padding: 25px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        /* --- Toast --- */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(30px);
+            background: var(--card-bg);
+            border: 1px solid var(--primary);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+            box-shadow: var(--glow);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+            font-weight: 600;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.7rem; }
+            .submit-btn-group { flex-direction: column; }
+            .brand-name { font-size: 1.3rem; }
+            .logo-ring { width: 48px; height: 48px; }
+            .nav-icon { width: 40px; height: 40px; font-size: 1rem; }
+            .floating-book { width: 58px; height: 58px; font-size: 1.4rem; bottom: 18px; left: 18px; }
+            .agenda-wrapper { padding: 20px; }
+            .header-nav .nav-icon.hide-mobile { display: none; }
+        }
+    </style>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4b6cb7">
+<link rel="apple-touch-icon" href="icon.png"></head>
+<body>
+
+    <!-- Header الفخم -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-box">
+                <div class="logo-ring">
+                    <img src="https://i.ibb.co/B27SRpcB/c3beee8e8cff0bf4bacae8beb6874bb4.jpg" alt="Salah Barber Logo">
+                </div>
+                <span class="brand-name">SALAH <span>BARBER</span></span>
+            </a>
+            <nav class="header-nav">
+                <a href="#services" class="nav-icon hide-mobile" title="الخدمات"><i class="fa-solid fa-scissors"></i></a>
+                <a href="#styles" class="nav-icon hide-mobile" title="التسريحات"><i class="fa-solid fa-wand-magic-sparkles"></i></a>
+                <a href="#gallery" class="nav-icon hide-mobile" title="المعرض"><i class="fa-solid fa-images"></i></a>
+                <a href="#busy" class="nav-icon" title="الأوقات المحجوزة"><i class="fa-solid fa-calendar-check"></i></a>
+                <a href="#booking" class="nav-icon highlight" title="احجز الآن"><i class="fa-solid fa-calendar-plus"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating Booking Button -->
+    <a href="#booking" class="floating-book" title="احجز موعدك">
+        <i class="fa-solid fa-calendar-plus"></i>
+    </a>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h2>صالون الحلاقة والعناية للرجال</h2>
+        <p>تجربة حلاقة عصرية وفاخرة بأعلى معايير الدقة والاحترافية</p>
+        <div class="hero-badges">
+            <span class="badge"><i class="fa-solid fa-scissors"></i> قصات عصرية</span>
+            <span class="badge"><i class="fa-solid fa-star"></i> جودة فخمة</span>
+            <span class="badge"><i class="fa-solid fa-clock"></i> احترام المواعيد</span>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- الخدمات -->
+        <section id="services">
+            <h2 class="section-title">خدماتنا و <span>الأسعار</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-scissors service-icon"></i>
+                    <h3>قص وتصفيف الشعر</h3>
+                    <p>أحدث القصات العصرية والمودرن بما يناسب شكل الوجه</p>
+                    <div class="price">من 300 دج فما فوق</div>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-user-ninja service-icon"></i>
+                    <h3>تحديد وتنسيق اللحية</h3>
+                    <p>رسم وتحديد اللحية بدقة مع العناية بالبشرة</p>
+                    <div class="price">من 300 دج فما فوق</div>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-spa service-icon"></i>
+                    <h3>باكاج كامل (VIP)</h3>
+                    <p>حلاقة شعر + لحية + تنظيف وتنشيط الوجه</p>
+                    <div class="price">من 600 دج فما فوق</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التسريحات القابلة للحجز -->
+        <section id="styles">
+            <h2 class="section-title">تسريحات <span>مميزة</span></h2>
+            <div class="styles-grid">
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://i.ibb.co/1ttWC087/987cfb4ae27878dfa5f9cab3896650c8.jpg" alt="تسريحة 1">
+                        <span class="style-badge">الأكثر طلباً</span>
+                    </div>
+                    <div class="style-info">
+                        <h3>قصة كلاسيك فاخرة</h3>
+                        <div class="style-price">من 350 دج</div>
+                        <a href="#booking" class="style-book-btn">احجز هذه التسريحة</a>
+                    </div>
+                </div>
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://i.ibb.co/h54sbTD/078e9f3a9c853828597c1ba1469c475a.jpg" alt="تسريحة 2">
+                        <span class="style-badge">جديد</span>
+                    </div>
+                    <div class="style-info">
+                        <h3>قصّة مودرن</h3>
+                        <div class="style-price">من 400 دج</div>
+                        <a href="#booking" class="style-book-btn">احجز هذه التسريحة</a>
+                    </div>
+                </div>
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://i.ibb.co/ksjZB6VH/2d7d334de2818f72769a2ddd28da1a2c.jpg" alt="تسريحة 3">
+                        <span class="style-badge">رائج</span>
+                    </div>
+                    <div class="style-info">
+                        <h3>قصّة فيد</h3>
+                        <div class="style-price">من 350 دج</div>
+                        <a href="#booking" class="style-book-btn">احجز هذه التسريحة</a>
+                    </div>
+                </div>
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://i.ibb.co/DfgcnCTv/979698e76139e406e35094c6d32398c6.jpg" alt="تسريحة 4">
+                        <span class="style-badge">VIP</span>
+                    </div>
+                    <div class="style-info">
+                        <h3>قصّة VIP</h3>
+                        <div class="style-price">من 500 دج</div>
+                        <a href="#booking" class="style-book-btn">احجز هذه التسريحة</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- الحجز على شكل أجندة -->
+        <section id="booking">
+            <h2 class="section-title">احجز <span>موعدك</span></h2>
+            <div class="agenda-wrapper">
+                <div class="agenda-header">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <h3>أجندة المواعيد</h3>
+                </div>
+                <form id="bookingForm" class="agenda-form">
+                    <div class="form-group">
+                        <label for="name"><i class="fa-solid fa-user"></i> الاسم الكامل</label>
+                        <input type="text" id="name" placeholder="أدخل اسمك الكريم" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fa-solid fa-phone"></i> رقم الهاتف</label>
+                        <input type="tel" id="phone" placeholder="0551680082" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service"><i class="fa-solid fa-scissors"></i> الخدمة المطلوبة</label>
+                        <select id="service" required>
+                            <option value="" disabled selected>اختر الخدمة...</option>
+                            <option value="حلاقة شعر (من 300 دج)">حلاقة شعر (من 300 دج)</option>
+                            <option value="تحديد لحية (من 300 دج)">تحديد لحية (من 300 دج)</option>
+                            <option value="باكاج كامل VIP (من 600 دج)">باكاج كامل VIP (من 600 دج)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date"><i class="fa-solid fa-calendar-day"></i> تاريخ الموعد</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <!-- Time Slots -->
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label><i class="fa-solid fa-clock"></i> الوقت المناسب</label>
+                        <div class="time-slots" id="timeSlots">
+                            <!-- يتم توليدها بالجافاسكريبت -->
+                        </div>
+                    </div>
+                    
+                    <div class="submit-btn-group">
+                        <button type="submit" class="btn-submit"><i class="fa-solid fa-check"></i> تأكيد الحجز</button>
+                        <a href="https://wa.me/213551680082" id="whatsappBtn" class="btn-whatsapp" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> حجز عبر واتساب
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- عارض الأوقات المحجوزة (للعامة) -->
+        <section id="busy">
+            <h2 class="section-title">الأوقات <span>المحجوزة</span></h2>
+            <div class="busy-viewer">
+                <div class="busy-header">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>تحقق من الأوقات المتاحة قبل الحجز</h3>
+                </div>
+                <div class="busy-date-picker">
+                    <label for="busyDate" style="font-weight:600;">اختر التاريخ:</label>
+                    <input type="date" id="busyDate">
+                    <button type="button" id="checkBusyBtn">عرض الحالة</button>
+                </div>
+                <div class="busy-slots-grid" id="busySlotsGrid">
+                    <!-- يتم توليدها -->
+                </div>
+                <div class="busy-legend">
+                    <span><span class="legend-dot free"></span> متاح</span>
+                    <span><span class="legend-dot taken"></span> محجوز</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- معرض الصور (صورك الأصلية) -->
+        <section id="gallery">
+            <h2 class="section-title">معرض <span>الأعمال</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://i.ibb.co/DDG2Jj7p/FB-IMG-1792063863241.jpg" alt="عمل 1"></div>
+                <div class="gallery-item"><img src="https://i.ibb.co/PsJSf9BD/FB-IMG-1792063849497.jpg" alt="عمل 2"></div>
+                <div class="gallery-item"><img src="https://i.ibb.co/6R12Qd8y/FB-IMG-1792063843406.jpg" alt="عمل 3"></div>
+                <div class="gallery-item"><img src="https://i.ibb.co/dsDFkhMC/FB-IMG-1792063839210.jpg" alt="عمل 4"></div>
+                <div class="gallery-item"><img src="https://i.ibb.co/216NLJbM/FB-IMG-1792063833883.jpg" alt="عمل 5"></div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fa-solid fa-clock"></i> ساعات العمل</h3>
+                <ul class="work-hours">
+                    <li><span>السبت - الخميس:</span> <span>09:00 - 22:00</span></li>
+                    <li><span>الجمعة:</span> <span>14:00 - 22:00</span></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fa-solid fa-location-dot"></i> العنوان والتواصل</h3>
+                <p style="color: var(--text-muted); margin-bottom: 10px;">وسط المدينة - يمكنك تعديل العنوان هنا</p>
+                <p><strong>الهاتف:</strong> 05.51.68.00.82</p>
+                <p><strong>WhatsApp:</strong> 05.51.68.00.82</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 - Salah Barber | طابع شيكاغو بولز الفاخر</p>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const phoneSalah = "213551680082";
+
+        /* ============================================================
+           نظام إدارة الحجوزات
+           ============================================================ */
+        const STORAGE_KEY = 'salah_barber_bookings_v1';
+
+        // الأوقات المتاحة (كل 30 دقيقة من 9:00 إلى 21:30)
+        function generateAllSlots() {
+            const slots = [];
+            for (let h = 9; h <= 21; h++) {
+                slots.push(`${String(h).padStart(2,'0')}:00`);
+                if (h < 21) slots.push(`${String(h).padStart(2,'0')}:30`);
+            }
+            return slots;
+        }
+
+        const ALL_SLOTS = generateAllSlots();
+
+        // الحصول على كل الحجوزات المخزنة
+        function getBookings() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+            } catch { return {}; }
+        }
+
+        // حفظ حجز جديد
+        function saveBooking(date, time) {
+            const bookings = getBookings();
+            if (!bookings[date]) bookings[date] = [];
+            if (!bookings[date].includes(time)) {
+                bookings[date].push(time);
+            }
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+        }
+
+        // هل الوقت محجوز؟
+        function isSlotBooked(date, time) {
+            const bookings = getBookings();
+            return bookings[date] && bookings[date].includes(time);
+        }
+
+        /* ============================================================
+           توليد الـ Time Slots في نموذج الحجز
+           ============================================================ */
+        const timeSlotsContainer = document.getElementById('timeSlots');
+        const dateInput = document.getElementById('date');
+        const busyDateInput = document.getElementById('busyDate');
+
+        // تعيين تاريخ اليوم افتراضياً
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+        busyDateInput.value = today;
+        dateInput.min = today;
+
+        function renderTimeSlots() {
+            const date = dateInput.value;
+            const currentSelected = document.querySelector('.time-slot.selected');
+            const selectedTime = currentSelected ? currentSelected.dataset.time : null;
+
+            timeSlotsContainer.innerHTML = '';
+
+            ALL_SLOTS.forEach(time => {
+                const booked = isSlotBooked(date, time);
+                const slot = document.createElement('div');
+                slot.className = 'time-slot' + (booked ? ' booked' : '') + (selectedTime === time ? ' selected' : '');
+                slot.dataset.time = time;
+
+                if (booked) {
+                    slot.innerHTML = `${time}<span class="slot-label">محجوز</span>`;
+                } else {
+                    slot.innerHTML = time;
+                    slot.addEventListener('click', () => {
+                        // إزالة selected من الكل
+                        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                        slot.classList.add('selected');
+                        updateWhatsapp();
+                    });
+                }
+
+                timeSlotsContainer.appendChild(slot);
+            });
+
+            updateWhatsapp();
+        }
+
+        dateInput.addEventListener('change', renderTimeSlots);
+
+        /* ============================================================
+           تحديث رسالة الواتساب
+           ============================================================ */
+        function updateWhatsapp() {
+            const name = document.getElementById('name').value || '';
+            const phone = document.getElementById('phone').value || '';
+            const service = document.getElementById('service').value || '';
+            const date = dateInput.value || '';
+            const selectedSlot = document.querySelector('.time-slot.selected');
+            const time = selectedSlot ? selectedSlot.dataset.time : '';
+
+            const message = `مرحباً صلاح، أرغب في حجز موعد:%0A- *الاسم:* ${name}%0A- *رقم الهاتف:* ${phone}%0A- *الخدمة:* ${service}%0A- *التاريخ:* ${date}%0A- *الوقت:* ${time}`;
+            
+            document.getElementById('whatsappBtn').href = `https://wa.me/${phoneSalah}?text=${message}`;
+        }
+
+        document.getElementById('bookingForm').addEventListener('input', updateWhatsapp);
+
+        /* ============================================================
+           تأكيد الحجز
+           ============================================================ */
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const date = dateInput.value;
+            const selectedSlot = document.querySelector('.time-slot.selected');
+
+            if (!selectedSlot) {
+                showToast('⚠️ الرجاء اختيار وقت متاح للحجز');
+                return;
+            }
+
+            const time = selectedSlot.dataset.time;
+
+            // تحقق نهائي أن الوقت غير محجوز
+            if (isSlotBooked(date, time)) {
+                showToast('❌ هذا الوقت تم حجزه للتو، اختر وقتاً آخر');
+                renderTimeSlots();
+                return;
+            }
+
+            // حفظ الحجز
+            saveBooking(date, time);
+
+            // تحديث الواجهات
+            renderTimeSlots();
+            renderBusySlots();
+
+            showToast(`✅ تم تسجيل حجزك في ${date} على الساعة ${time}! أرسل التفاصيل عبر واتساب.`);
+
+            // إعادة تعيين الاختيار
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+            updateWhatsapp();
+        });
+
+        /* ============================================================
+           عارض الأوقات المحجوزة للعامة
+           ============================================================ */
+        const busySlotsGrid = document.getElementById('busySlotsGrid');
+
+        function renderBusySlots() {
+            const date = busyDateInput.value || today;
+            busySlotsGrid.innerHTML = '';
+
+            ALL_SLOTS.forEach(time => {
+                const booked = isSlotBooked(date, time);
+                const div = document.createElement('div');
+                div.className = 'busy-slot ' + (booked ? 'taken' : 'free');
+                div.textContent = time;
+                busySlotsGrid.appendChild(div);
+            });
+        }
+
+        document.getElementById('checkBusyBtn').addEventListener('click', renderBusySlots);
+        busyDateInput.addEventListener('change', renderBusySlots);
+
+        /* ============================================================
+           Toast
+           ============================================================ */
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        /* ============================================================
+           زر "احجز هذه التسريحة" -> يمرر ويحدد الخدمة
+           ============================================================ */
+        document.querySelectorAll('.style-book-btn').forEach((btn, idx) => {
+            btn.addEventListener('click', (e) => {
+                // تعبئة الخدمة تلقائياً حسب التسريحة
+                const serviceSelect = document.getElementById('service');
+                const styleTitles = ['قصة كلاسيك فاخرة','قصّة مودرن','قصّة فيد','قصّة VIP'];
+                // اختر الخدمة الافتراضية الأولى
+                serviceSelect.value = 'حلاقة شعر (من 300 دج)';
+                updateWhatsapp();
+            });
+        });
+
+        /* ============================================================
+           التشغيل الأولي
+           ============================================================ */
+        renderTimeSlots();
+        renderBusySlots();
+
+        // عند إدخال الاسم أو الهاتف أو الخدمة، حدّث الواتساب
+        ['name','phone','service'].forEach(id => {
+            document.getElementById(id).addEventListener('input', updateWhatsapp);
+            document.getElementById(id).addEventListener('change', updateWhatsapp);
+        });
+    </script>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
+</body>
+</html>
